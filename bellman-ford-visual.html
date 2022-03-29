@@ -29,7 +29,7 @@
     />
     <meta
       property="og:url"
-      content="https://iq.opengenus.org/algorithm-siaualization/"
+      content="https://iq.opengenus.org/algorithm-visualization/"
     />
     <meta
       property="article:published_time"
@@ -66,8 +66,8 @@
       type="image/png"
       href="./assets/images/fav1.ico"
     />
-    <link rel="stylesheet" href="./assets/css/visual/index.css" />
-    <link rel="stylesheet" href="./assets/css/visual/pathFinding.css" />
+    <link rel="stylesheet" href="./src/assets/css/index.css" />
+    <link rel="stylesheet" href="./src/assets/css/pathFinding.css" />
     <title>Bellman Ford's Single Source Shortest Path Algorithm.</title>
   </head>
 
@@ -124,6 +124,9 @@
               <option value="dfs">DFS</option>
             </select>
             <button class="start btn">start</button>
+            <button class="findNext btn" style="display: none">
+              find next
+            </button>
             <button class="manual btn">manual</button>
             <button class="clearPath btn">clear path</button>
             <button class="reset btn">reload</button>
@@ -132,7 +135,7 @@
             <span
               ><img
                 class="info"
-                src="./assets/images/icons8-info-60.png"
+                src="./src/assets/images/icons8-info-60.png"
                 alt=""
             /></span>
             <div class="tutorialContent">
@@ -324,7 +327,6 @@
         <span><a href="https://twitter.com/OpenGenus"> Twitter</a></span>
       </div>
     </footer>
-    <script src="./assets/js/common/index.js"></script>
-    <script type="module" src="./assets/js/visual/Grid/index.js"></script>
+    <script src="./dist/main.js"></script>
   </body>
 </html>
