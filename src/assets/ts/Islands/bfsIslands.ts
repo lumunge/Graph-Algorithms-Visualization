@@ -27,8 +27,8 @@ class NumberOfIslands {
     r: number,
     c: number
   ) => {
-    let row = [-1, -1, -1, 0, 0, 1, 1, 1];
-    let col = [-1, 0, 1, -1, 1, -1, 0, 1];
+    let row: number[] = [-1, -1, -1, 0, 0, 1, 1, 1];
+    let col: number[] = [-1, 0, 1, -1, 1, -1, 0, 1];
 
     let q: number[][] = [];
     q.push([si, sj]);
@@ -145,7 +145,7 @@ class Visualize {
 
     //start algorithm
     var visited: HTMLElement[] = [startNode];
-    var checker: HTMLElement[] = [startNode];
+    var checker = [startNode];
     var count = 1;
 
     while (checker.length != 0) {
@@ -169,7 +169,7 @@ class Visualize {
     }
 
     const numIslands = new NumberOfIslands();
-    let matGrid: number[][] = getGrid();
+    let matGrid = getGrid();
 
     setTimeout(() => {
       alert(
