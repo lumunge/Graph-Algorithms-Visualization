@@ -15,7 +15,7 @@ class NumberOfIslands {
     vis: boolean[][],
     r: number,
     c: number
-  ) => {
+  ): boolean => {
     return i >= 0 && i < r && j >= 0 && j < c && mat[i][j] == 1 && !vis[i][j];
   };
 
@@ -26,7 +26,7 @@ class NumberOfIslands {
     sj: number,
     r: number,
     c: number
-  ) => {
+  ): void => {
     let row: number[] = [-1, -1, -1, 0, 0, 1, 1, 1];
     let col: number[] = [-1, 0, 1, -1, 1, -1, 0, 1];
 
@@ -48,7 +48,7 @@ class NumberOfIslands {
     }
   };
 
-  countIslands = (mat: number[][], r: number, c: number) => {
+  countIslands = (mat: number[][], r: number, c: number): number => {
     let vis = new Array(r);
     for (let i = 0; i < c; i++) {
       vis[i] = new Array(c);
@@ -71,7 +71,7 @@ class NumberOfIslands {
 
 //visualize the calculation
 class Visualize {
-  changeColor = (node: HTMLElement, count: number) => {
+  changeColor = (node: HTMLElement, count: number): void => {
     setTimeout(() => {
       node.setAttribute("class", "chosenPath");
     }, count * time);
@@ -131,7 +131,7 @@ class Visualize {
   };
 
   //bfs algorithm implementation
-  visualizeBFS = () => {
+  visualizeBFS = (): void => {
     time = 40 + (time - 1) * -2;
     gridContainer.removeEventListener("mousedown", setWall);
     gridContainer.removeEventListener("mouseover", setWall);
@@ -169,7 +169,7 @@ class Visualize {
     }
 
     const numIslands = new NumberOfIslands();
-    let matGrid = getGrid();
+    let matGrid: number[][] = getGrid();
 
     setTimeout(() => {
       alert(

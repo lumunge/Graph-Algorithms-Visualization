@@ -15,7 +15,7 @@ class NumberOfIslands {
     j: number,
     row: number,
     col: number
-  ) => {
+  ): void => {
     if (i < 0 || j < 0 || i > row - 1 || j > col - 1 || matrix[i][j] != 1) {
       return;
     }
@@ -34,9 +34,9 @@ class NumberOfIslands {
   };
 
   countIslands = (matrix: number[][]): number => {
-    let row = matrix.length;
-    let col = matrix[0].length;
-    let count = 0;
+    let row: number = matrix.length;
+    let col: number = matrix[0].length;
+    let count: number = 0;
     for (let i = 0; i < row; i++) {
       for (let j = 0; j < col; j++) {
         if (matrix[i][j] == 1) {
@@ -59,7 +59,7 @@ class NumberOfIslands {
 }
 
 class Visualize {
-  changeColor = (node: HTMLElement, count: number) => {
+  changeColor = (node: HTMLElement, count: number): void => {
     setTimeout(() => {
       node.setAttribute("class", "chosenPath");
     }, count * time);
@@ -75,7 +75,7 @@ class Visualize {
     }, count * time + 100);
   };
 
-  checker = (row: number, col: number) => {
+  checker = (row: number, col: number): boolean => {
     if (row >= 0 && col >= 0 && row < rowSize && col < colSize) return true;
     return false;
   };
@@ -85,7 +85,7 @@ class Visualize {
     visited: HTMLElement[],
     count: number,
     endNode: HTMLElement
-  ) => {
+  ): void => {
     let row = Number(node.getAttribute("row"));
     let col = Number(node.getAttribute("col"));
 
@@ -126,7 +126,7 @@ class Visualize {
     }
   };
 
-  visualizeDFS = () => {
+  visualizeDFS = (): number => {
     time = 40 + (time - 1) * -2;
     gridContainer.removeEventListener("mousedown", setWall);
     gridContainer.removeEventListener("mouseover", setWall);
@@ -152,7 +152,7 @@ class Visualize {
   };
 }
 
-export const dfsIslands = () => {
+export const dfsIslands = (): void => {
   const visual = new Visualize();
   let islands = visual.visualizeDFS();
   setTimeout(() => {
