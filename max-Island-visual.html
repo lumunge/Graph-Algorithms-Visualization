@@ -63,8 +63,8 @@
       type="image/png"
       href="./assets/images/fav1.ico"
     />
-    <link rel="stylesheet" href="./assets/css/visual/index.css" />
-    <link rel="stylesheet" href="./assets/css/visual/pathFinding.css" />
+    <link rel="stylesheet" href="./src/assets/css/index.css" />
+    <link rel="stylesheet" href="./src/assets/css/pathFinding.css" />
     <title>Making a large island.</title>
   </head>
 
@@ -122,6 +122,9 @@
               <option value=""></option>
             </select>
             <button class="start btn">start</button>
+            <button class="findNext btn" style="display: none">
+              find next
+            </button>
             <button class="manual btn" style="display: none">manual</button>
             <button class="reset btn">reload</button>
           </div>
@@ -256,7 +259,6 @@
         <span><a href="https://twitter.com/OpenGenus"> Twitter</a></span>
       </div>
     </footer>
-    <script src="./assets/js/common/index.js"></script>
-    <script type="module" src="./assets/js/visual/Grid/index.js"></script>
+    <script src="./dist/main.js"></script>
   </body>
 </html>
