@@ -10,15 +10,15 @@ import { setWall } from "./createWalls";
 import { setObstacles } from "./generateObstacles";
 import { dfs } from "../PathFindingAlgorithms/dfs";
 import { bfs } from "../PathFindingAlgorithms/bfs";
-// import { bfsIslands } from "../Islands/bfsIslands.js";
-// import { dfsIslands } from "../Islands/dfsIslands.js";
-// import { maxIsland } from "../Islands/largeIsland.js";
-// import { findPaths } from "../PathFindingAlgorithms/findPaths.js";
-// import {
-//   bellmanFord,
-//   relaxations,
-//   bellmanStepsLength,
-// } from "../PathFindingAlgorithms/bellmanFord.js";
+import { bfsIslands } from "../Islands/bfsIslands";
+import { dfsIslands } from "../Islands/dfsIslands";
+import { maxIsland } from "../Islands/largeIsland";
+// import { findPaths } from "../PathFindingAlgorithms/findPaths";
+import {
+  bellmanFord,
+  relaxations,
+  bellmanStepsLength,
+} from "../PathFindingAlgorithms/bellmanFord";
 
 // get DOM elements
 export const gridContainer = document.querySelector(
@@ -292,26 +292,26 @@ const startVisualization = () => {
     manualStart.addEventListener("click", () => {
       stepper(dfsSteps);
     });
+  } else if (algorithmType.classList.contains("dijkstras")) {
+    bfs(startRow, startCol, endRow, endCol);
+    manualStart.addEventListener("click", () => {
+      stepper(bfsSteps);
+    });
+  } else if (algorithmType.classList.contains("bellman-ford")) {
+    bellmanFord(startRow, startCol, endRow, endCol);
+    manualStart.addEventListener("click", () => {
+      stepper(bellmanSteps);
+    });
+  } else if (algorithmType.classList.contains("numIslands")) {
+    if (islandAlgo === "bfs") {
+      bfsIslands();
+    } else if (islandAlgo === "dfs") {
+      dfsIslands();
+    }
+  } else if (algorithmType.classList.contains("maxIsland")) {
+    maxIsland();
   }
-  // else if (algorithmType.classList.contains("dijkstras")) {
-  //   bfs(startRow, startCol, endRow, endCol);
-  //   manualStart.addEventListener("click", () => {
-  //     stepper(bfsSteps);
-  //   });
-  // } else if (algorithmType.classList.contains("bellman-ford")) {
-  //   bellmanFord(startRow, startCol, endRow, endCol);
-  //   manualStart.addEventListener("click", () => {
-  //     stepper(bellmanSteps);
-  //   });
-  // } else if (algorithmType.classList.contains("numIslands")) {
-  //   if (islandAlgo === "bfs") {
-  //     bfsIslands();
-  //   } else if (islandAlgo === "dfs") {
-  //     dfsIslands();
-  //   }
-  // } else if (algorithmType.classList.contains("maxIsland")) {
-  //   maxIsland();
-  // } else if (algorithmType.classList.contains("findPaths")) {
+  //  else if (algorithmType.classList.contains("findPaths")) {
   //   findPaths(startRow, startCol, endRow, endCol);
   //   findNextPath.addEventListener("click", () => {
   //     findNextPathFunc(visitedPaths);
@@ -352,32 +352,19 @@ window.onload = () => {
   ) {
     createStartNode(startRow, startCol);
     createEndNode(endRow, endCol);
+  } else if (
+    algorithmType.classList.contains("numIslands") ||
+    algorithmType.classList.contains("maxIslands")
+  ) {
+    if (islandAlgo === "bfs") {
+      createStartNode(0, 0);
+      createEndNode(19, 39);
+    } else if (
+      islandAlgo === "dfs" ||
+      algorithmType.classList.contains("maxIslands")
+    ) {
+      createStartNode(0, 0);
+      createEndNode(0, 1);
+    }
   }
-  // else if (
-  //   algorithmType.classList.contains("numIslands") ||
-  //   algorithmType.classList.contains("maxIslands")
-  // ) {
-  //   if (islandAlgo === "bfs") {
-  //     createStartNode(0, 0);
-  //     createEndNode(19, 39);
-  //     document
-  //       .querySelector(`div[row='${0}'][col='${0}']`)
-  //       .classList.add("islandsPathNode");
-  //     document
-  //       .querySelector(`div[row='${19}'][col='${39}']`)
-  //       .classList.add("islandsPathNode");
-  //   } else if (
-  //     islandAlgo === "dfs" ||
-  //     algorithmType.classList.contains("maxIslands")
-  //   ) {
-  //     createStartNode(0, 0);
-  //     createEndNode(0, 1);
-  //     document
-  //       .querySelector(`div[row='${0}'][col='${0}']`)
-  //       .classList.add("islandsPathNode");
-  //     document
-  //       .querySelector(`div[row='${0}'][col='${1}']`)
-  //       .classList.add("islandsPathNode");
-  //   }
-  // }
 };

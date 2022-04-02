@@ -17,7 +17,7 @@ let time = (<HTMLInputElement>document.querySelector(".speedSlider"))
   .value as unknown as number;
 
 //change color of a node during and after traversal
-const changeColor = (node: HTMLElement, count: number, cost: number) => {
+const changeColor = (node: HTMLElement, count: number, cost: number): void => {
   setTimeout(() => {
     node.setAttribute("class", "chosenPath");
     if (cost) {
