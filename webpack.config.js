@@ -1,5 +1,5 @@
 module.exports = {
-  mode: "development",
+  // mode: "development",
   module: {
     rules: [
       {
