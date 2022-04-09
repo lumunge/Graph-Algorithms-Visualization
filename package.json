@@ -1,7 +1,8 @@
 {
   "name": "dsa_visualization_project",
   "version": "1.0.0",
-  "description": "",
+  "homepage": "https://lumunge.github.io/Graph-Algorithms-Visualization/",
+  "description": "Graph algorithms and other algorithmic problems.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +10,7 @@
     "build:watch": "webpack --watch"
   },
   "keywords": [],
-  "author": "",
+  "author": "lumunge",
   "license": "ISC",
   "devDependencies": {
     "ts-loader": "^9.2.8",
